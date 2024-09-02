@@ -17,26 +17,26 @@
               th:action="@{'/createNewPost'}"
               th:object="${post}"
               method="post" enctype="multipart/form-data">
-            <h2>Create New Blog Post</h2>
+            <h2>Create your Blog</h2>
             <div class="form-group">
-                <label for="title">Title</label>
+                <label for="title">Blog Title</label>
                 <div class="alert-message" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</div>
                 <input type="text" id="title" th:field="*{title}" placeholder="Enter post title"/>
             </div>
             <div class="form-group">
-                <label for="body">Content</label>
+                <label for="body">Blog Description</label>
                 <div class="alert-message" th:if="${#fields.hasErrors('body')}" th:errors="*{body}">Body Error</div>
-                <textarea id="body" th:field="*{body}" placeholder="Write something valuable"></textarea>
+                <textarea id="body" th:field="*{body}" placeholder="Pen down your thoughts here"></textarea>
             </div>
             <div class="form-group">
                 <label for="image">Upload Image</label>
                 <input type="file" name="image" id="image"/>
             </div>
             <div class="form-actions">
-                <button class="btn btn-submit" type="submit">Publish Post</button>
+                <button class="btn btn-submit" type="submit">Publish Blog</button>
                 <div th:if="${post.id}">
                     <a th:href="@{'/deletePost/{id}'(id=${post.id})}">
-                        <button class="btn btn-delete" type="button">Delete Post</button>
+                        <button class="btn btn-delete" type="button">Delete Blog</button>
                     </a>
                 </div>
             </div>
@@ -44,6 +44,7 @@
     </div>
 </div>
 
+<!--       internal server error by using this  -->
 <!-- Initialize CKEditor -->
 <script>
     CKEDITOR.replace('body');
