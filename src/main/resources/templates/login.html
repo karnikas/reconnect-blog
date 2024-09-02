@@ -14,7 +14,7 @@
         <div class="unique-login-container">
             <div th:if="${param.error}">
                 <p class="unique-notification unique-error-message">
-                    <span class="unique-notification-icon">❗</span> <!-- Error emoji -->
+                    <span class="unique-notification-icon"></span>
                     Invalid username or password
                 </p>
             </div>
@@ -26,26 +26,25 @@
             </div>
             <div th:if="${param.signupSuccess}">
                 <p class="unique-notification unique-success-message">
-                    <span class="unique-notification-icon">✅</span> <!-- Success emoji -->
+                    <span class="unique-notification-icon"></span> 
                     Sign up successful, please login
                 </p>
             </div>
 
             <form th:action="@{/login}" method="post" class="unique-login-form">
-                <h1 class="unique-form-title">Log In Here</h1> <!-- Lock emoji -->
+                <h1 class="unique-form-title">Log In Here</h1> 
                 <div class="unique-input-group">
-                    <input type="text" name="username" id="username" placeholder="Enter Username" required="true" autofocus="true" class="unique-form-input"/> <!-- User emoji -->
-                </div>
+                    <input type="text" name="username" id="username" placeholder="Enter Username" required="true" autofocus="true" class="unique-form-input"/>                 </div>
                 <div class="unique-input-group">
-                    <input type="password" name="password" id="password" placeholder="Enter Password" required="true" class="unique-form-input"/> <!-- Key emoji -->
+                    <input type="password" name="password" id="password" placeholder="Enter Password" required="true" class="unique-form-input"/>
                 </div>
 
                 <div class="unique-input-group">
-                    <input type="submit" class="unique-submit-button" value="Login"/> <!-- Arrow emoji -->
+                    <input type="submit" class="unique-submit-button" value="Login"/> 
                 </div>
                 <!-- Optional: Uncomment for Forgot Password link -->
                 <!-- <div class="unique-form-footer">
-                    <a href="/forgot-password" class="unique-forgot-password-link">Forgot Password? 🔑</a> <!-- Key emoji -->
+                    <a href="/forgot-password" class="unique-forgot-password-link">Forgot Password? </a> 
         </div>
         </form>
     </div>
