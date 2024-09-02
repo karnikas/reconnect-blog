@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include Font Awesome for icons (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+<div class="content-wrapper">
+    <div class="unique-login-container-out">
+        <div class="unique-login-container">
+            <div th:if="${param.error}">
+                <p class="unique-notification unique-error-message">
+                    <span class="unique-notification-icon">❗</span> <!-- Error emoji -->
+                    Invalid username or password
+                </p>
+            </div>
+            <div th:if="${param.logout}">
+                <p class="unique-notification unique-success-message">
+                    <span class="unique-notification-icon"></span> <!-- Logout emoji -->
+                    You have been successfully logged out
+                </p>
+            </div>
+            <div th:if="${param.signupSuccess}">
+                <p class="unique-notification unique-success-message">
+                    <span class="unique-notification-icon">✅</span> <!-- Success emoji -->
+                    Sign up successful, please login
+                </p>
+            </div>
+
+            <form th:action="@{/login}" method="post" class="unique-login-form">
+                <h1 class="unique-form-title">Log In Here</h1> <!-- Lock emoji -->
+                <div class="unique-input-group">
+                    <input type="text" name="username" id="username" placeholder="Enter Username" required="true" autofocus="true" class="unique-form-input"/> <!-- User emoji -->
+                </div>
+                <div class="unique-input-group">
+                    <input type="password" name="password" id="password" placeholder="Enter Password" required="true" class="unique-form-input"/> <!-- Key emoji -->
+                </div>
+
+                <div class="unique-input-group">
+                    <input type="submit" class="unique-submit-button" value="Login"/> <!-- Arrow emoji -->
+                </div>
+                <!-- Optional: Uncomment for Forgot Password link -->
+                <!-- <div class="unique-form-footer">
+                    <a href="/forgot-password" class="unique-forgot-password-link">Forgot Password? 🔑</a> <!-- Key emoji -->
+        </div>
+        </form>
+    </div>
+</div>
+</div>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+
+</body>
+</html>
