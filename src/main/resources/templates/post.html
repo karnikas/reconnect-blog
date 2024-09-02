@@ -22,7 +22,7 @@
             <p class="post-body" th:text="${post.body}">body text</p>
             <div class="edit-button" sec:authorize="isAuthenticated()" th:if="${isOwner}">
                 <a th:href="@{'/editPost/{id}'(id=${post.id})}">
-                    <button class="edit-btn" type="button">Edit</button>
+                    <button class="edit-btn" type="button">Edit post</button>
                 </a>
             </div>
         </div>
@@ -31,7 +31,7 @@
         <div class="comments-section">
         <h2 class="comment-header">Comments</h2>
         <div th:if="${#lists.isEmpty(post.comments)}">
-            <p>No comments yet. Be the first to comment!</p>
+            <p>Be the first one to comment!</p>
         </div>
         <div class="comment" th:each="comment : ${post.comments}">
             <h5 class="comment-info" th:text="'Commented on ' + ${#dates.format(post.creationDate, 'yyyy-MM-dd')} + ' by ' + ${comment.user.username}">Comment date and by whom</h5>
@@ -41,7 +41,7 @@
 
     <div class="comment-btn-container">
         <a th:href="@{'/comment/{id}'(id=${post.id})}">
-            <button class="comment-btn" type="button">Comment Post</button>
+            <button class="comment-btn" type="button">Comment...</button>
         </a>
     </div>
 </div>
